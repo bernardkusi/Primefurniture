@@ -1,0 +1,69 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <div class="container">
+        <div class="page">
+          <div id="products">
+            <div class="heading">Items in cart</div>
+            {% if cart %}
+                {% for item in cart %}
+                    <div class="cart">
+                        <div class="image">
+                            <img src="{% static 'images/'%}{{ item.itemid.itemimage }}.jpg" alt="{{ item.itemid.itemname }}">
+                        </div>
+                        <div class="details">
+                            <p class="itemname">{{item.itemid.itemname}}</p>
+                            <p class="itemdescription">
+                                {{item.itemid.itemdescription}}
+                            </p>
+                            <p class="rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </p>
+                            <p class="itemprice price1">${{item.itemid.itemprice}}</p>
+                        </div>
+
+                        <div>
+                            <p class="itemprice">${{item.itemid.itemprice}}</p>
+                            <form method="POST"action="{% url 'remove' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="removeid" value="{{ item.itemid.id }}"/>
+                            <button class="click">Remove</button>
+                            </form>
+                        </div>
+
+                    </div>
+                {% endfor %}
+                {% else %}
+
+                <div class="cart">
+
+                <p class="itemprice" style="text-align:center;padding:1rem;display:block"> No items in cart</p>
+                
+                </div>
+
+                {% endif %}
+
+                    <div class="cart last">
+            <div class="details">
+                <p><span class="text">Items in cart : </span><span class="result">{{ number }}</span></p>
+                <p><span class="text">Cost Of Items : </span><span class="result">${{ total }}</span></p>
+                <p><span class="text">Cost Of Delivery : </span><span class="result">$0.00</span></p>
+                <p><span class="text">Total price payable : </span><span class="itemprice">${{ total }}</span></p>
+            </div>
+            <form method="POST" action={% url 'order' %}>
+            {% csrf_token%}
+            <button class="click buy">Buy&nbsp;Now</button>
+            <form/>
+        </div>
+
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+   <nav >
+        <a href="{% url 'index' %}" class="logo">PrimeFurniture</a>
+
+        <ul>
+          <a href="{% url 'index' %}">Home</a>
+          <a href="{% url 'index' %}#about">About</a>
+          <a href="{% url 'index' %}#services">Services</a>
+          <a href="{% url 'index' %}#products">Products</a>
+          <a href="{% url 'index' %}#testimonials">Testimonial</a>
+          <a href="{% url 'index' %}#contact">Contact</a>
+          <a href="{% url 'index' %}#blog">Blog</a>
+        </ul>
+
+        <div class="bars">
+          <div class="bar"></div>
+        </div>
+
+        {% if request.user.is_authenticated %}
+        <a class="click" href={% url 'signout' %}>Logout</a>
+        {% else %}
+        <a class="click" href={% url 'signin' %}>Signin</a>
+        {% endif %}
+
+      </nav>

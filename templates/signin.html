@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="pagecover" style="background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url({% static 'images/subimage.jpg' %});background-position: center;background-size: cover;">
+    <div class="page">
+        <form method="post" class="userform" action="">
+            {% csrf_token %} 
+        <p class="label">Log In</p>
+    {% if messages %}
+      {% for message in messages %}
+        <small> 
+            {{ message }}
+        </small>
+      {% endfor %}
+    {% endif %}
+        <div class="control">
+
+            <input type="text" name="email" required id="email">
+             <label for="email">Email</label>
+            
+        </div>
+  
+        
+        <div class="control">
+
+            <input type="password" name="password" required id="password">
+            <label for="password">Password</label>
+            
+        </div>
+
+         <p class="redirect">
+    <a href="{% url 'signup' %}">Click Here</a> To create an account if you don't have one.
+    </p>
+  
+        <button class="click" type="submit">
+        Sign In
+        </button>
+        </form>
+        </div>
+</div>
+{% endblock %}

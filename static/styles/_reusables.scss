@@ -1,0 +1,211 @@
+.center{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.click{
+    background: #fff;
+    color: $primary;
+    padding: .65rem 1.2rem;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    border-radius: .3rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 0 .3rem rgba(0, 0, 0, 0.42);
+    transition: all .3s;
+
+    &:hover{
+        background: $primary;
+        color: #fff
+    }
+}
+
+.page{
+    @extend .center;
+    max-width: 1300px;
+    padding: 4rem 1rem 3rem;
+
+    .heading{
+        font-size: 1.55rem;
+        text-align: center;
+        font-weight: 500;
+        color: $secondary;
+        padding: 2rem 0;
+    }
+}
+
+.pageimage{
+    background: linear-gradient(rgba(0, 0, 0, 0.244),rgba(0, 0, 0, 0.221));
+    background-position: center;
+    background-size: cover;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pagecover{
+    min-height: 100vh;
+    padding: calc(3rem + 5vh) 0 2rem;
+
+}
+
+.container{
+    min-height: 100vh
+}
+
+
+.userform{
+    @extend .center;
+    max-width: 450px;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.87);
+    border-radius: .5rem;
+
+    .control{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    label{
+        display: block;
+        padding: .2rem 0;
+        color: gray;
+    }
+
+    small{
+        text-align: center;
+        color: red;
+        font-weight: bold;
+        font-size: .85rem;
+    }
+
+    .label{
+        color: #fff;
+        text-align: center;
+        font-size: 1.45rem;
+        font-weight: 500;
+        color: lighten($secondary,2);
+        padding: 0rem 0 .3rem;
+    }
+
+    input{
+        display: block;
+        width: 100%;
+        border:  1px solid lightgray;
+        border-radius: .3rem;
+        padding: .4rem;
+        outline: none;
+        background: rgba(255, 255, 255, 0.808);
+    }
+
+    input:focus{
+        border-color: $secondary;
+    }
+
+    .helptext{
+        display: none;
+    }
+
+    .click{
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%) scale(.9);
+        margin: .7rem 0;
+    }
+
+    .redirect{
+        font-size: .9rem;
+        color: grey;
+        padding: .7rem 0 .2rem;
+
+        a{
+            color: $primary;
+        }
+    }
+}
+
+
+.cart{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: .4rem;
+    border: 1px solid lightgrey;
+    border-radius: .5rem;
+    margin-top: 1rem;
+
+    .image{
+        width: 300px;
+        height: fit-content;
+    }
+
+    .text{
+        font-weight: 500;
+        color: rgb(68, 68, 68);
+    }
+
+    .result{
+        color: lightgrey;
+        font-size: .95rem;
+    }
+
+    .details{
+        .itemname{
+            color: $primary;
+            font-weight: 500;
+        }
+
+        .itemdescription{
+            padding: .3rem 0;
+        }
+
+        
+    }
+    .itemprice{
+        font-weight: 500;
+        color: grey;
+        text-align: center;
+        &:nth-of-type(4){
+            display: none;
+        }
+    }
+
+    .click{
+        color: #fff;
+        background: $primary;
+        box-shadow: none;
+        margin-top: 1rem;
+        transform: scale(.85);
+
+        &:hover{
+            box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.51);
+        }
+    }
+
+    .buy{
+        color: $primary;
+        background: #fff;
+        box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.51);
+        transform: scale(.9);
+    }
+}
+
+.rating{
+    color: $secondary;
+}
+
+.link{
+    font-weight: 500;
+    color: $primary;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}

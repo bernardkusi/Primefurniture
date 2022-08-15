@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrimeFurniture</title>
+  </head>
+  <body>
+    <header>
+     {% include 'layouts/nav.html' %}
+    </header>
+
+    <main>
+     {% block content %}
+     {% endblock %}
+    <main/>
+
+    <footer>
+       {% include 'layouts/footer.html' %}
+    </footer>
+
+    <script src="{% static 'js/index.js' %}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/b806e80b78.js" crossorigin="anonymous"></script>
+    <script>
+     AOS.init();
+    </script>
+   
+  </body>
+</html>

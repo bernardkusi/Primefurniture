@@ -1,0 +1,313 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+      <div id="home" style="background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url({% static 'images/bacd.jpg' %});background-position: center;background-size: cover;">
+        <div class="intro">
+          <h1>Quality furniture at <span>PrimeFurniture</span></h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In quas
+            odit dolorum ducimus?
+          </p>
+
+          <a href="{% url 'products' %}" class="click">Shop Now</a>
+        </div>
+      </div>
+
+      <div id="about">
+        <div class="page">
+          <p class="heading">About Us</p>
+
+          <div class="aboutflex">
+            <div data-aos="fade-right" data-aos-duration="600">
+              <p class="abouttext">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint
+                voluptatibus accusamus doloribus fuga explicabo veritatis
+                voluptas rem minima laudantium, expedita dolore numquam velit
+                sunt dolor nostrum tempora quidem maxime suscipit necessitatibus
+                illum? Dolor impedit maxime incidunt quae earum numquam vitae
+                nam ipsum possimus aliquid iure minus non necessitatibus,
+                repellat et quis neque? Saepe eaque libero dolorum eius alias,
+                distinctio quos, nemo animi voluptatibus, voluptates quas.
+              </p>
+              <a href="#" class="click">Learn More</a>
+            </div>
+
+            
+
+            <div class="aboutimage" data-aos="fade-left" data-aos-duration="600">
+              <div class="subimage">
+                <img src="{% static 'images/subimage.jpg' %}" alt="subimage">
+              </div>
+                <img src="{% static 'images/about.jpg' %}" alt="aboutimage">
+            </div>
+          </div>
+        </div>
+
+        <div id="services" style="background: linear-gradient(rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0.15)),url({% static 'images/service.jpg' %});background-position: center;background-size: cover;">
+          <div class="pageimage">
+            <div class="page">
+              <div class="heading">Our Services</div>
+
+              <div class="serviceflex">
+                 
+
+              <div data-aos="zoom-in">
+              
+              <div class="service">
+                  <p class="servicename">Home Or Office Delivery.</p>
+                  <div class="serviceicon">
+                    <i class="fa-solid fa-house"></i>
+                  </div>
+                  <p class="servicedescription">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Est molestiae quia non iusto. Est cupiditate corrupti
+                    doloremque.
+                  </p>
+                </div>
+              
+              </div>
+
+               <div data-aos="zoom-in">
+              
+              <div class="service">
+                  <p class="servicename">New arrivals every week.</p>
+                  <div class="serviceicon">
+                    <i class="fa-solid fa-bullhorn"></i>
+                  </div>
+                  <p class="servicedescription">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Est molestiae quia non iusto. Est cupiditate corrupti
+                    doloremque.
+                  </p>
+                </div>
+              
+              </div>
+
+               <div data-aos="zoom-in">
+              
+              <div class="service">
+                  <p class="servicename">Available Nationwide</p>
+                  <div class="serviceicon">
+                    <i class="fa-solid fa-location-pin"></i>
+                  </div>
+                  <p class="servicedescription">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Est molestiae quia non iusto. Est cupiditate corrupti
+                    doloremque.
+                  </p>
+                </div>
+              
+              </div>
+
+               <div data-aos="zoom-in">
+              
+              <div class="service">
+                  <p class="servicename">Fast Delivery Services.</p>
+                  <div class="serviceicon">
+                    <i class="fa-solid fa-truck-fast"></i>
+                  </div>
+                  <p class="servicedescription">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Est molestiae quia non iusto. Est cupiditate corrupti
+                    doloremque.
+                  </p>
+                </div>
+              
+              </div>
+
+               <div data-aos="zoom-in">
+              
+              <div class="service">
+                  <p class="servicename">Pay In Installments</p>
+                  <div class="serviceicon">
+                    <i class="fa-solid fa-money-bill-1-wave"></i>
+                  </div>
+                  <p class="servicedescription">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Est molestiae quia non iusto. Est cupiditate corrupti
+                    doloremque.
+                  </p>
+                </div>
+              
+              </div>
+
+               <div data-aos="zoom-in">
+              
+              <div class="service">
+                  <p class="servicename">Quality Furniture.</p>
+                  <div class="serviceicon">
+                    <i class="fa-solid fa-couch"></i>
+                  </div>
+                  <p class="servicedescription">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Est molestiae quia non iusto. Est cupiditate corrupti
+                    doloremque.
+                  </p>
+                </div>
+              
+              </div>
+            
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="products" >
+          <div class="page">
+              <p class="heading">Our Products</p>
+              <div class="productgrid">
+              
+              {% for item in items %}
+               <div class="product"  data-aos="fade-up" data-aos-duration="500">
+                      <div class="productimage">
+                          <img src="{% static "images/" %}{{ item.itemimage }}.jpg" alt="image">
+                      </div>
+                      <div class="productdetails">
+                        <p class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </p>
+                      <a href="{% url 'product' item.id %}" class="productname">{{ item.itemname }}</a>
+                      <p class="productprice">${{ item.itemprice }}</p>
+                      <form  action="{% url 'purchase' item.id %}" method=="POST">
+                      <button class="click">Buy now</button>
+                      </form>
+                      </div>
+                  </div>
+              {% endfor %}
+                 <a href="{% url 'products' %}" class="link">View more...</a>
+              </div>
+          </div>
+      </div>
+
+      <div id="testimonials">
+        <div class="page">
+          <p class="heading">Testimonials</p>
+
+          <div class="testimonialflex">
+            <div class="testimonial" data-aos="flip-right" data-aos-duration="500">
+              <p class="name">Bernard Kusi</p>
+              <p class="comment">
+                <span><i class="fa-solid fa-quote-left"></i></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
+                laudantium excepturi? Delectus odit dignissimos saepe deleniti
+                iusto. Hic maiores in vel voluptatibus a excepturi distinctio
+                minima obcaecati. <span><i class="fa-solid fa-quote-right"></i></span>
+              </p>
+            </div>
+            <div class="testimonial" data-aos="flip-right" data-aos-duration="500">
+              <p class="name">Mary Owusu</p>
+              <p class="comment">
+                <span><i class="fa-solid fa-quote-left"></i></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
+                laudantium excepturi? Delectus odit dignissimos saepe deleniti
+                iusto. Hic maiores in vel voluptatibus a excepturi distinctio
+                minima obcaecati. <span><i class="fa-solid fa-quote-right"></i></span>
+              </p>
+            </div>
+            <div class="testimonial" data-aos="flip-right" data-aos-duration="500">
+              <p class="name">Charles Duah</p>
+              <p class="comment">
+                <span><i class="fa-solid fa-quote-left"></i></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Id,
+                laudantium excepturi? Delectus odit dignissimos saepe deleniti
+                iusto. Hic maiores in vel voluptatibus a excepturi distinctio
+                minima obcaecati. <span><i class="fa-solid fa-quote-right"></i></span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="blog" >
+        <div class="page">
+          <p class="heading">Our Blog</p>
+          <div class="blogflex">
+            <div class="blog" data-aos="fade-up" data-aos-duration="500">
+              <div class="blogimage">
+                <img src="{% static 'images/couch.webp' %}" alt="image" />
+              </div>
+              <div class="blogpad">
+                <p class="blogtitle">Lorem ipsum dolor sit amet.</p>
+                <p class="blogtext">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Mollitia incidunt, necessitatibus itaque nesciunt animi, esse
+                  harum rerum modi repellendus sequi unde dolor quas facere
+                  voluptas culpa suscipit temporibus, ab repellat. Eaque sit
+                  culpa eius itaque?
+                </p>
+              </div>
+            </div>
+
+            <div class="blog" data-aos="fade-up" data-aos-duration="500">
+              <div class="blogimage">
+                <img src="{% static 'images/double-couch.webp' %}" alt="image" />
+              </div>
+              <div class="blogpad">
+                <p class="blogtitle">Lorem ipsum dolor sit amet.</p>
+                <p class="blogtext">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Mollitia incidunt, necessitatibus itaque nesciunt animi, esse
+                  harum rerum modi repellendus sequi unde dolor quas facere
+                  voluptas culpa suscipit temporibus, ab repellat. Eaque sit
+                  culpa eius itaque?
+                </p>
+              </div>
+            </div>
+
+            <div class="blog" data-aos="fade-up" data-aos-duration="500">
+              <div class="blogimage">
+                <img src="{% static 'images/newdouble.jpg' %}" alt="image" />
+              </div>
+              <div class="blogpad">
+                <p class="blogtitle">Lorem ipsum dolor sit amet.</p>
+                <p class="blogtext">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Mollitia incidunt, necessitatibus itaque nesciunt animi, esse
+                  harum rerum modi repellendus sequi unde dolor quas facere
+                  voluptas culpa suscipit temporibus, ab repellat. Eaque sit
+                  culpa eius itaque?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      
+      <div id="contact">
+        <div class="pageimage" style="background: linear-gradient(rgba(0, 0, 0, 0.192),rgba(0, 0, 0, 0.203)) ,url({% static 'images/contact.jpg' %}); background-position: center;background-size: cover;">
+          <div class="page">
+            <p class="heading">Contact Us</p>
+            <div class="form">
+              <form action="{% url 'message' %}" method="POST">
+              {% csrf_token %}
+                <div>
+                  <div class="control" data-aos="fade-right" data-aos-duration="500">
+                    <input type="text" name="name" id="name" />
+                    <label for="name">Your name</label>
+                  </div>
+
+                  <div class="control" data-aos="fade-left" data-aos-duration="500">
+                    <input type="text" name="email" id="email" />
+                    <label for="email">Your email</label>
+                  </div>
+                </div>
+
+                <div class="control" data-aos="fade-up" data-aos-duration="500">
+                  <textarea name="message" id="message"></textarea>
+                  <label for="message">Your message</label>
+                </div>
+
+                <button class="click">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    {% endblock %}

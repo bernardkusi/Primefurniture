@@ -1,0 +1,54 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="pagecover" style="background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url({% static 'images/subimage.jpg' %});background-position: center;background-size: cover;">
+    <div class="page">
+    <form method="post" class="userform">
+     {% csrf_token %} 
+    <p class="label">Log In</p>
+    {% if messages %}
+     {% for message in messages %}
+     <small> 
+     {{ message }}
+      </small>
+      {% endfor %}
+    {% endif %}
+
+    <div class="control">
+        <input type="text" name="first_name" required id="firstname">
+        <label for="firstname">Firstname</label>
+    </div>
+    
+
+    <div class="control">
+        <input type="text" name="last_name" required id="lastname">
+        <label for="lastname">Lastname</label>
+    </div>
+
+    <div class="control">
+        <input type="email" name="email" required id="email">
+        <label for="email">Email</label>
+    </div>
+
+    <div class="control">
+        <input type="password" name="password" required id="password">
+        <label for="password">Password</label>
+    </div>
+
+    <div class="control">
+        <input type="password" name="password2" required id="password2">
+        <label for="password2">Pasword Confirmation</label>
+    </div>
+
+    <p class="redirect">
+    <a href="{% url 'signin' %}">Click Here</a> To log in to your account if you already have one.
+    </p>
+
+    <button class="click">
+    Sign Up
+    </button>
+    </form>
+    </div>
+</div>
+{% endblock %}>

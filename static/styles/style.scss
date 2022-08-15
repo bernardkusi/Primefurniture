@@ -1,0 +1,533 @@
+$primary:rgb(208, 19, 5);
+$secondary:rgb(229, 153, 13);
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 140%;
+}
+  
+::-webkit-scrollbar-track{
+    background: grey;
+}
+
+::-webkit-scrollbar-thumb{
+    width: 2rem;
+    background: $secondary;
+    border-radius: .3rem;
+    border: 2px solid grey;
+}
+
+::-webkit-scrollbar{
+    width: .6rem;
+}
+
+@import './reusables';
+
+    header{
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.855);
+
+        nav{
+            display: flex;
+            justify-content: space-between;
+            padding: .6rem 2rem;
+            background: $primary;
+            background: transparent;
+            height: 5rem;
+            align-items: flex-end;
+            position: relative;
+            
+
+            .bars{
+                position: absolute;
+                width: 21px;
+                height: 16px;
+                // background: red;
+                right: 1rem;
+                top: 1.3rem;
+                display: none;
+
+                .bar{
+                    background: #fff;
+                    position: relative;
+                    width: 100%;
+                    height: 2px;
+                    border-radius: 1px;
+
+                    &::before{
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background: #fff;
+                        top: 7px;
+                        border-radius: 1px;
+                    }
+
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background: #fff;
+                        top: 14px;
+                        border-radius: 1px;
+                    }
+                }
+
+                
+            }
+
+            .logo{
+                font-size: 1.8rem;
+                text-decoration: none;
+                color: #fff;
+                align-self: center;
+                font-weight: 600;
+            }
+            
+
+            ul{
+                display: flex;
+                gap: 1.5rem;
+
+                a{
+                    text-decoration: none;
+                    color: #fff;
+                    font-weight: 400;
+                    transition: all .3s;
+
+                    &:hover{
+                        color:darken($primary,5);
+                    }
+
+                }
+            }
+        }
+    }
+
+
+
+#home{
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url(../bacd.jpg) ;
+    background-position: center;
+    background-size: cover; 
+    width: 100%;
+    height: 100vh;
+    padding: 6rem 2rem 4rem;
+
+    .intro{
+        margin-top: 15vh;
+        text-align: center;
+
+        h1{
+            font-size: 3.6rem;
+            color: #fff;
+            font-weight: 400;
+
+
+            span{
+                color: $primary
+            }
+        }
+
+        p{
+            @extend .center;
+            font-size: 1.45rem;
+            color: $secondary;
+            max-width: 40rem;
+            margin: 1rem 0;
+        }
+    }
+}
+
+
+#about{
+    background: darken($primary, 28);
+    overflow: hidden;
+    .aboutflex{
+        padding: 2rem 0;
+        display: flex;
+        gap: 1rem 3rem;
+        justify-content: space-evenly;
+        align-items: center;
+
+    &>div{
+        width: 45%;
+        min-height: 20rem;
+        margin: 1.5rem 0;
+        
+
+        .click{
+            transform: scale(.9);
+            margin: 1rem 0;
+        }
+    }
+
+    .aboutimage{
+        background: lightgray;
+        height: 28rem;
+        position: relative;
+        border: .7rem solid $secondary;
+        
+
+        .subimage{
+            position: absolute;
+            right: -1rem;
+            top: -1rem;
+            width: 55%;
+            height: 65%;
+            background: lightgrey;
+            border: 10px solid darken($primary, 28);
+        }
+    }
+
+    .abouttext{
+        color: #fff;
+        font-size: 1.1rem;
+        line-height: 150%;
+    }
+
+    }
+}
+
+#services{
+    
+    
+    .serviceflex{
+        @extend .center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: .5rem 2rem;
+        padding: 2rem 0;
+
+        .service{
+            width: 24rem;
+            min-height: 12rem ;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: .6rem;
+            padding: .6rem;
+            max-width: 96vw;
+            margin: 2rem 0;
+
+            .servicename{
+                text-align: center;
+                color: $primary;
+                font-size: 1rem;
+                padding: .35rem 0
+            }
+
+            .servicedescription{
+                font-size: .9rem;
+                text-align: center
+            }
+
+            .serviceicon{
+                @extend .center;
+                margin: .4rem 0;
+                width: 6rem;
+                height: 6rem;
+                // background: gray;
+                border-radius: 50%;
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 3rem;
+                color: $secondary;
+            }
+        }
+    }
+}
+
+
+#products{
+    .productgrid{
+        display: grid;
+        grid-template-columns: repeat(4,minmax(100px,280px));
+        // grid-auto-rows: 17rem;
+        gap: 2rem;
+        padding-bottom: 6rem;
+
+        .product{
+            //  background: yellow;
+             
+             .productimage{
+                 background: lightgray;
+                 height: 11rem;
+             }
+
+             .productdetails{
+                 padding: .6rem;
+
+                 .productname{
+                     font-weight: 500;
+                     color: $primary;
+                 }
+
+                 .productprice{
+                     font-size: .95rem;
+                     color: rgb(58, 58, 58);
+                 }
+
+                 .rating{
+                     color: $secondary;
+                 }
+
+                 button{
+                     position: relative;
+                     @extend .center;
+                     transform-origin: 0;
+                     transform: scale(.8);
+                 }
+             }
+        }
+    }
+}
+
+
+
+#testimonials{
+    background: darken($primary, 28);
+    .testimonialflex{
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1rem 2rem;
+        padding: 2.5rem 0;
+
+        .testimonial{
+            width: 20rem;
+            // height: 15rem;
+            background: #fff;
+            border-radius: .5rem;
+            padding: .7rem;
+            box-shadow: 0 0 .4rem rgba(0, 0, 0, 0.387);
+            margin: 1.5rem 0;
+
+            .name{
+                color: $primary;
+                font-size: 1.2rem;
+                font-weight: 500;
+                padding-left: 2rem;
+            }
+
+            .comment{
+                color:rgb(90, 90, 90);
+                line-height: 150%;
+                padding: .5rem 0;
+
+                span{
+                    width: 1.6rem;
+                    height: 1.5rem;
+                    display: flex;
+                    display: inline-block;
+                    border: 1px solid $secondary;
+                    margin:0 1rem;
+                    text-align:center;
+
+                    
+
+                    i{
+                        position: relative;
+                        color: $secondary;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+#blog{
+    .blogflex{
+        display: flex;
+        gap: 1rem 3rem;
+        padding: 3rem 0 7rem;
+
+        .blog{
+            margin: 1.5rem 0;
+            .blogpad{
+                padding: .5rem;
+            }
+            width: 100%;
+            // height: 20rem;
+            background: #fff;
+            overflow: hidden;
+
+            .blogimage{
+                background: lightgray;
+                height: 12rem
+            }
+
+            .blogtitle{
+                color: $primary;
+                font-weight: 500
+            }
+
+            .blogtext{
+                line-height: 100%;
+                color: rgb(90, 90, 90);
+                padding: .3rem 0;
+                font-size: .95rem
+            }
+        }
+    }
+}
+
+#contact{
+    overflow: hidden;
+    .form{
+        @extend .center;
+        width: 96%;
+        max-width: 900px;
+        // background: red;
+        padding:2rem 1rem;
+
+        form{
+            &>div{
+                display: flex;
+                justify-content: stretch;
+                gap: 1rem;
+
+                &>div{
+                    width: 50%;
+                }
+            }
+
+            .click{
+                @extend .center;
+                margin: 1rem 0;
+            }
+
+           .control{
+               display: flex;
+               flex-direction: column-reverse;
+               margin-top: 1.5rem;
+
+            label{
+                display: block;
+                padding-bottom: .3rem;
+                color: lighten($secondary, 20);
+                color: #fff;
+                font-size: 1.1rem;
+            }
+
+            input,textarea{
+                display: block;
+                width: 100%;
+                padding: .6rem 1rem;
+                border: none;
+                outline: none;
+                resize: none;
+                border-radius: .5rem;
+                // box-shadow: 0 0 .4rem rgba(211, 211, 211, 0.743);
+                background: rgba(255, 255, 255, 0.792);
+            }
+
+            textarea{
+                height: 9rem;
+            }
+           }
+        }
+    }
+}
+
+
+footer{
+    background: darken($primary, 28);
+    position: relative;
+    
+    &>div{
+    background: rgba(0, 0, 0, 0.73);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 3rem 1rem 5rem;
+    // flex-wrap: wrap;
+    gap: 2rem;
+
+    p{
+        max-width: 550px;
+        color: #fff;
+    }
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem 3rem;
+        gap: .2rem;
+
+        a{
+            text-decoration: none;
+            color: #fff;
+
+            &:hover{
+                color: $primary;
+            }
+        }
+    }
+    }
+
+    .copy{ 
+        @extend .center;
+        position: absolute;
+        color: #fff;
+        font-size: .85rem;
+        bottom: 1rem
+    }
+}
+
+// Serach Item page
+.searchitem{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    // box-shadow: 0 0 .3rem rgba(0, 0, 0, 0.2);
+    padding: .7rem;
+    margin: 3rem 0;
+    border-radius: .4rem;
+
+    .image{
+        width: 330px;
+        height: auto;
+
+    }
+
+    .details{
+        width: calc(100% - 330px);
+        .itemname{
+            color: $primary;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: .7rem 0;
+        }
+
+        .itemdescription{
+            color: gray;
+            // padding: .5rem 0;
+        }
+
+        .itemprice{
+            color: grey;
+            font-weight: 500;
+            padding: .5rem 0;
+        }
+
+        
+
+        .click{
+            margin-top: 1rem;
+        }
+
+    }
+}
+
+@import './media';

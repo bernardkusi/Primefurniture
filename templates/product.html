@@ -1,0 +1,64 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <div class="container">
+        <div class="page">
+          <div class="heading">Item name</div>
+          <div class="searchitem">
+              <div class="image">
+                <img src="{% static "images/" %}{{ product.itemimage }}.jpg" alt="image" />
+              </div>
+              <div class="details">
+                <p class="itemname">{{ product.itemname }}</p>
+                <p class="itemdescription">
+                 {{ product.itemdescription }}
+                </p>
+                <p class="rating">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </p>
+                <p class="itemprice">${{ product.itemprice }}</p>
+                <form  action="{% url 'purchase' product.id %}" method=="POST">
+                    <button class="click">Buy now</button>
+                </form>
+              </div>
+          </div>
+
+
+          <div id="products">
+            <div class="heading">Other Products In Store</div>
+            <div class="productgrid">
+
+              {% for item in items %}
+               <div class="product"  data-aos="fade-up" data-aos-duration="500">
+                      <div class="productimage">
+                          <img src="{% static "images/" %}{{ item.itemimage }}.jpg" alt="image">
+                      </div>
+                      <div class="productdetails">
+                        <p class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                      </p>
+                      <a href="{% url 'product' item.id %}" class="productname">{{ item.itemname }}</a>
+                      <p class="productprice">${{ item.itemprice }}</p>
+                      <form  action="{% url 'purchase' item.id %}" method=="POST">
+                      <button class="click">Buy now</button>
+                      </form>
+                      </div>
+                  </div>
+              {% endfor %}
+                 
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
